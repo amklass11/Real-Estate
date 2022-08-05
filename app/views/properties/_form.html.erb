@@ -1,0 +1,68 @@
+<%= form_with(model: property, local: true) do |form| %>
+<%= render "layouts/validation", item: @property %>
+
+<div class="form-group">
+  <%= form.label :name %>
+  <%= form.text_field :name, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :details %>
+  <%= form.text_area :details, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :for_sale %>
+  <%= form.select :for_sale, options_for_select({ "Yes" => true, "No" => false }, @property.for_sale), class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <% opts = @property.for_sale? ? { "Available" => "available", "Sold" => "sold"} : { "Available" => "available", "Leased" => "leased"} %>
+  <%= form.label :status %>
+  <%= form.select :status, options_for_select(opts, @property.status), class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :address %>
+  <%= form.text_field :address, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :price, "Total Price (for sale) / Monthly Price (rental)" %>
+  <%= form.number_field :price, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :available_date %>
+  <%= form.date_field :available_date, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :parking_spaces %>
+  <%= form.number_field :parking_spaces, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :rooms %>
+  <%= form.number_field :room, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :bathrooms %>
+  <%= form.number_field :bathroom, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :photo %>
+  <%= form.file_field :photo, class: "form-control" %>
+  <%= form.hidden_field :photo_cache %>
+
+  <% if @property.photo.present? %>
+  <%= image_tag @property.photo.thumbnail.url, class: "mt-4" %>
+  <% end %>
+</div>
+
+<div class="form-group">
+  <%= form.submit "Save Property", class: "btn btn-success" %>
+</div>
+<% end %>

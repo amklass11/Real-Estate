@@ -1,0 +1,18 @@
+<main role="main" class="pt-5">
+  <div class="jumbotron" bis_skin_checked="1">
+    <div class="container" bis_skin_checked="1">
+      <h1 class="display-4"><%= @post.title %></h1>
+      <p class="text-muted pl-2"><em>Posted <%= time_ago_in_words @post.created_at %> ago</em></p>
+    </div>
+  </div>
+</main>
+
+<div class="container">
+  <% if @post.image.thumb.url %>
+  <%= image_tag @post.image.thumb.url, class:"float-right mb-4 ml-4"  %>
+  <% else %>
+  <%= image_tag asset_url('post_placeholder.jpg'), class:"float-right mb-4 ml-4"  %>
+  <% end %>
+  <%= simple_format @post.body %>
+  <p><%= link_to 'View latest blog posts', blog_path %></p>
+</div>

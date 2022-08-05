@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="<%= account_signed_in? ? dashboard_path : root_path %>">Property Finder</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault" bis_skin_checked="1">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <% if account_signed_in? %>
+          <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+          <% else %>
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Latest</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01" bis_skin_checked="1">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Blog", blog_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Advertising</a>
+        </li>
+      </ul>
+      <% if account_signed_in? %>
+      <%= link_to "Log Out", destroy_account_session_path, method: :delete, class: "btn btn-secondary float-md-right" %>
+      <% else %>
+      <%= link_to "Log In", new_account_session_path, class: "btn btn-secondary float-md-right mr-2" %>
+      <%= link_to "Sign Up", new_account_registration_path, class: "btn btn-success float-md-right" %>
+      <% end %>
+    </div>
+  </div>
+</nav>

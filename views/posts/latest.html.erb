@@ -1,0 +1,25 @@
+<main role="main" class="main-banner" id="blog-banner">
+  <div class="jumbotron" bis_skin_checked="1">
+    <div class="container" bis_skin_checked="1">
+      <h1 class="display-4">Latest Blog Posts</h1>
+      <p>Stay up to date with the latest property news at Property Finder!</p>
+    </div>
+  </div>
+</main>
+
+<div class="container">
+  <% if @posts.empty? %>
+  <p> No posts to display.</p>
+  <% else %>
+  <% @posts.each do |post| %>
+  <div class="row">
+    <div class="column">
+      <h2><%= post.title %></h2>
+      <p><%= post.summary %></p>
+      <%= link_to "Read more..", post_path(post), class:"btn btn-success" %>
+    </div>
+  </div>
+  <hr />
+  <% end %>
+  <% end %>
+</div>

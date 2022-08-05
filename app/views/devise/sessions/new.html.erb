@@ -1,0 +1,20 @@
+<section class="form-auth text-center">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <h1 class="h3 mb-3 font-weight-normal">Please Log In</h1>
+
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <%= f.email_field :email, autofocus: true, class: "form-control", id: "inputEmail", placeholder: "Email address", autocomplete: "email" %>
+
+  <label for="inputPassword" class="sr-only">Password</label>
+  <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "form-control", id: "inputPassword" %>
+
+  <div class="checkbox mb-3" bis_skin_checked="1">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+  <% end %>
+  <%= render "devise/shared/links" %>
+</section>

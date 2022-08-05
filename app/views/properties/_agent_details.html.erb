@@ -1,0 +1,20 @@
+<div class="text-center border p-4 pb-4 ml-lg-4">
+  <div class="mb-2">
+    <%= profile_picture @agent %>
+  </div>
+  <h3 class="h4 m-0"><%= @agent.full_name %></h3>
+  <p><%= @agent.company %></p>
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-block btn-info text-uppercase mb-3" id="show-tel" data-telephone="<%= @agent.telephone %>"><i class="fas fa-phone mr-2"></i><span>Call</span></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 pr-1">
+      <%= link_to "Profile", profile_path(@agent.id), class: "btn btn-secondary text-uppercase btn-block" %>
+    </div>
+    <div class="col-md-6 pl-1">
+      <button class="btn btn-block btn-success text-uppercase" data-toggle="modal" data-target="#contact-modal"><i class="fas fa-envelope mr-2"></i>Email</button>
+    </div>
+  </div>
+</div>

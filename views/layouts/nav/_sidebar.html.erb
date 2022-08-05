@@ -1,0 +1,25 @@
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="sidebar-sticky pt-3" bis_skin_checked="1">
+        <ul class="nav flex-column">
+          <%= render "layouts/nav/#{ current_account.admin? ? 'admin' : 'user' }"%>
+        </ul>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>Settings</span>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <%= link_to profile_path(current_account), class: "nav-link" do %>
+            <i data-feather="file-text"></i>
+            My Profile
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to edit_account_registration_path ,class: "nav-link" do %>
+            <i data-feather="settings"></i>
+            Account Settings
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </nav>

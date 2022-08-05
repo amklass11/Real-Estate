@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>PropertyFinder</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_pack_tag 'application' %>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_url 'favicon/apple-touch-icon.png' %>">
+  <link rel="icon" type="image/png" sizes="32x32" href="<%= asset_url 'favicon/favicon-32x32.png' %>">
+  <link rel="icon" type="image/png" sizes="16x16" href="<%= asset_url 'favicon/favicon-16x16.png' %>">
+  <link rel="manifest" href="<%= asset_url 'favicon/site.webmanifest' %>">
+
+</head>
+
+<body id="<%= controller.controller_name %>" class="<%= controller.action_name %> <%= "show-sidebar" if @show_sidebar.present? %>">
+  <% if @show_sidebar.nil? %>
+  <header>
+    <%= render "layouts/nav/public" %>
+  </header>
+  <%= yield %>
+  <% else %>
+  <%= render "layouts/nav/dashboard" %>
+  <div class="container-fluid" bis_skin_checked="1">
+    <div class="row" bis_skin_checked="1">
+      <%= render "layouts/nav/sidebar" %>
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 mt-3">
+        <%= yield %>
+      </main>
+    </div>
+  </div>
+  <% end %>
+
+
+  <%#= render "layouts/nav/footer" %>
+
+  <div id="notifications"><%= flash_notifications %></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+  <script>
+    feather.replace()
+  </script>
+</body>
+
+</html>

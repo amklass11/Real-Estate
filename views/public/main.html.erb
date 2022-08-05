@@ -1,0 +1,53 @@
+<main role="main" class="main-banner" id="home-banner">
+
+  <div class="jumbotron" bis_skin_checked="1">
+    <div class="container" bis_skin_checked="1">
+      <h1 class="display-3">Search for your new home today...</h1>
+      <p>Choose from hundreds of beautiful bungalows, apartments and condominiums.</p>
+      <p><a class="btn btn-success" href="https://bernardogarza.me" role="button" target="_blank">Learn more »</a></p>
+    </div>
+  </div>
+
+  <section id="latest-properties" class="mb-5">
+    <div class="container" bis_skin_checked="1">
+      <h3 class="mb-3">Latest Properties</h3>
+      <div class="row" bis_skin_checked="1">
+        <%= render "properties/list", properties: @properties %>
+      </div>
+    </div>
+  </section>
+
+  <section id="latest-posts" class="mb-5">
+    <div class="container" bis_skin_checked="1">
+      <h3 class="mb-3">Latest News</h3>
+      <div class="row" bis_skin_checked="1">
+        <%= render "posts/list", posts: @posts %>
+      </div>
+    </div>
+  </section>
+
+  <div class="container" bis_skin_checked="1">
+
+    <div class="row" bis_skin_checked="1">
+      <div class="col-md-4" bis_skin_checked="1">
+        <h2>Heading</h2>
+        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+      </div>
+      <div class="col-md-4" bis_skin_checked="1">
+        <h2>Heading</h2>
+        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+      </div>
+      <div class="col-md-4" bis_skin_checked="1">
+        <h2>Heading</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+      </div>
+    </div>
+
+    <hr>
+
+  </div>
+
+</main>

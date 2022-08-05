@@ -1,0 +1,10 @@
+<p>Hi <%= @agent.first_name %>,</p>
+
+<p>You have a new message from Property Finder.</p>
+
+<p>First name: <%= @first_name %><br />
+  Last name: <%= @last_name %><br />
+  Email: <%= @email %></p>
+
+
+<%= simple_format @message %>

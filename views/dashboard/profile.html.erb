@@ -1,0 +1,65 @@
+<div class="property-main-photo mt-5" style="background-image:url('<%= cover_image_url @account %>')">
+  <div class="photo-overlay">
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col">
+          <p class="h4 mb-0"><%= @account.full_name %></p>
+          <p class="mb-2"><%= @account.company %></p>
+          <p class="text-muted">Registered for <%= time_ago_in_words @account.created_at %>
+        </div>
+        <div class="col-lg-7 text-center">
+
+        </div>
+      </div>
+
+      <div class="row border-top mt-5 pt-4">
+        <div class="col">
+          <p class="h5">About <%= @account.first_name %></p>
+          <div id="prop-details">
+            <%= simple_format @account.details %>
+          </div>
+          <button class="btn btn-outline-info mt-3" id="toggleDetails">Show more</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <%= render "properties/profile_contact_details", agent: @account %>
+
+      <div class="col-md-10 offset-md-1 text-center">
+        <div class="row mt-sm-3 bg-light p-3">
+          <div class="col-md-6">
+            <p class="lead"><%= @properties_sold %><br />Sold</p>
+          </div>
+          <div class="col-md-6">
+            <p class="lead"><%= @properties_for_sale %><br />For Sale</p>
+          </div>
+          <div class="col-md-6">
+            <p class="lead"><%= @properties_leased %><br />Leased</p>
+          </div>
+          <div class="col-md-6">
+            <p class="lead"><%= @properties_for_rent %><br />For Rent</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="mt-5 mb-5">
+    <div class="container" bis_skin_checked="1">
+      <div class="row" bis_skin_checked="1">
+        <div class="col-12">
+          <p class="h3 mb-3">Current listings by this agent</p>
+        </div>
+        <%= render "properties/list", properties: @properties %>
+      </div>
+    </div>
+  </section>
+</div>
+
+<%= render "properties/send_email_modal", agent: @account %>
